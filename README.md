@@ -13,6 +13,7 @@ An introduction to Git and GitHub in two parts:
 |---------------|----------------------------------------------------------------------------|---------------------------------|
 | `ls`          | list directory contents                                                    | `ls`                            |
 | `cd`          | change directory                                                           | `cd src/images`                 |
+| `pwd`         | print working directory (i.e., see where you are in the file system)       | `pwd`                           |
 | `rm`          | remove (delete) file                                                       | `rm notes.txt`                  |
 | `mkdir`       | make directory                                                             | `mkdir data`                    |
 | `cp`          | copy file                                                                  | `cp notes1.txt notes1-copy.txt` |
