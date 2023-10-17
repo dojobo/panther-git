@@ -64,13 +64,13 @@ To see what forks exist: Insights \> Forks. (See also: Network)
 
 To create your own fork: click Fork on the main page.
 
-##   
+## 
 
 ![The Fork button, to make your own fork of a posted repo. Insights is also highlighted, where you may find the list of Forks and the Network graph (see next slide).](images/dplyr-fork.png)
 
-##   
+## 
 
-![Part of the Network Graph for dplyr. Each row is a fork owner, each colored line is a branch, and each dot/node is a commit. The owner at bottom of image shows a one-commit branch and merge in dark gray, and a new branch (initial commit) in light gray. The black label near center of image shows the branch's name. The numbers at top are dates of a month. ](images/dplyr-network.png){fig-align="center"}
+![Part of the Network Graph for dplyr. Each row is a fork owner, each colored line is a branch, and each dot/node is a commit. The owner at bottom of image shows a one-commit branch and merge in dark gray, and a new branch (initial commit) in light gray. The black label near center of image shows the branch's name. The numbers at top are dates of a month.](images/dplyr-network.png){fig-align="center"}
 
 ## Activity: Fork our repo {.smaller}
 
@@ -123,7 +123,7 @@ If the merge can't be resolved automatically, then merging halts:
 
 and a *merge conflict* is generated at each appropriate position in the files.
 
-##    {.smaller}
+##  {.smaller}
 
 Here's an example of what a merge conflict looks like:
 
@@ -141,16 +141,49 @@ The **blame** feature, which is not really about "blaming," tells you, for a giv
 
 Similar to `log`, `blame` is available on the command-line, but probably best experienced in a richer platform like GitHub.
 
-##   
+## 
 
 ![A file in the tidyverse/dplyr repo, codecov.yml. The view has been switched from Code (the default) to Blame. Note that each line in the file is assigned an author and commit.](images/dplyr-blame.png){fig-align="center"}
 
 # Repository management paradigms
 
-## Repository management paradigms
+## Branching workflows
 
--   Branching workflows: <https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows>
+-   Long-running branches may be left open and merged across at various moments by an authority. This is called a [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) style.
+-   `main` is usually the "stable" branch. `develop` is a parallel branch to test stability. Various topic branches "graduate" into `develop`, and changes in `develop` graduate into `main`.
+-   Topic branches may be many and small, to silo multiple working environments from one another. A team that focuses on merging small branches into a trunk frequently---contrasted with Gitflow's long-running branches---is called [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development).
+-   A merged branch *may* be deleted, but not that doing so simplifies the repo history and prevents further development on the branch.
+
+##   
+
+![Progressive-stability branching; changes graduate from topics to `develop` and then to `main`. Image source: [Pro Git](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows)](images/lr-branches-2.png){fig-align="center"}
+
+##   
+
+![A Gitflow branching example. Source: [Atlassian, "Gitflow Workflow"](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)](images/04 Hotfix branches.svg){fig-align="center"}
+
+## Distributed management paradigms
+
+-   Centralized workflow
+-   Integration-manager workflow
+-   Dictator and lieutenants workflow
 -   Distributed workflows: <https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows>
+
+## Centralized workflow
+
+In a centralized workflow, everyone has push access. This is safe, but may require many merges when there are concurrent users.
+
+![Centralized workflow. Source: [Pro Git](https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows)](images/centralized_workflow.png){fig-align="center"}
+
+## Integration-manager workflow
+
+Individual developers work in isolation and then publish their forks publicly. The integration manager merges changes into the "blessed" repository from developers' forks.
+
+![Integration-manager workflow. Source: [Pro Git](https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows)](images/integration-manager.png){fig-align="center"}
+
+## Dictator and lieutenants workflow
+
+![Dictator and lieutenants workflow. Source: [Pro Git](https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows)](images/benevolent-dictator.png){fig-align="center"}
 
 ## Resources for learning and practice {.smaller}
 
